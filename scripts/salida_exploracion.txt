@@ -1,0 +1,378 @@
+================================================================================
+INFORME DE EXPLORACIÓN Y VERIFICACIÓN COMPLETA - DATASET ECOBICI
+Fecha de ejecución: 2026-10-23 14:39:37
+================================================================================
+
+================================================================================
+[RECORRIDOS 2016] Archivo: recorridos-realizados-2016.zip
+================================================================================
+
+--- PARTE 1: EXPLORACIÓN ESTRUCTURAL (Muestra inicial nrows=1000) ---
+a) Archivos en ZIP: ['recorridos-realizados-2016.csv']
+   CSV de datos identificado: recorridos-realizados-2016.csv
+b) Separador detectado: ','
+   Encoding con el que se pudo leer: utf-8
+c) Nombres exactos de las columnas (15):
+      - periodo
+      - genero_usuario
+      - fecha_origen_recorrido
+      - id_estacion_origen
+      - nombre_estacion_origen
+      - long_estacion_origen
+      - lat_estacion_origen
+      - domicilio_estacion_origen
+      - duracion_recorrido
+      - fecha_destino_recorrido
+      - id_estacion_destino
+      - nombre_estacion_destino
+      - long_estacion_destino
+      - lat_estacion_destino
+      - domicilio_estacion_destino
+d) Formato de fecha y hora:
+      - Columna 'fecha_origen_recorrido':
+          Ejemplos: ['2016-01-01 02:21:41', '2016-01-01 08:38:19', '2016-01-01 15:01:07']
+          Formato strptime deducido: %Y-%m-%d %H:%M:%S
+      - Columna 'fecha_destino_recorrido':
+          Ejemplos: ['2016-01-01 02:48:05', '2016-01-01 09:36:12', '2016-01-01 16:04:15']
+          Formato strptime deducido: %Y-%m-%d %H:%M:%S
+e) Duración del viaje:
+      - Columna: 'duracion_recorrido'
+      - Unidad / formato: Texto con formato de duración timedelta ('0 days HH:MM:SS.ns')
+      - Ejemplos: ['0 days 00:16:29.000000000', '0 days 00:55:26.000000000', '0 days 00:40:27.000000000']
+f) ID de usuario en muestra:
+      - No contiene columna de id de usuario (solo trae 'genero_usuario')
+g) Cantidad TOTAL de filas (sin encabezado): 596,807
+
+--- PARTE 2: VERIFICACIONES SOBRE ARCHIVOS COMPLETOS (PASO 3b) ---
+1. Ejemplos de ID de viaje y análisis de sufijos:
+      - Columna: Ninguna (no existe)
+      - 5 Ejemplos: []
+      - Diagnóstico de sufijo: No aplica: NO existe ninguna columna que sirva de ID de viaje en 2016
+2. Cantidad de nulos o vacíos en campos clave:
+      - id_usuario: No existe columna en este año
+      - id_estacion_origen: 0
+      - id_estacion_destino: 0
+      - fecha_origen_recorrido: 0
+      - fecha_destino_recorrido: 93,555
+3. Cantidad de fechas que NO cumplen formato %Y-%m-%d %H:%M:%S:
+      - fecha_origen_recorrido: 0
+      - fecha_destino_recorrido: 0
+4. Cantidad de IDs de viaje duplicados:
+      - Duplicados encontrados: No aplica (sin columna de id)
+5. Consistencia temporal de viajes (calculada con fechas):
+      - Viajes con fin anterior al inicio (destino < origen): 0
+      - Viajes con duración mayor a 86.400 segundos (> 24 hs): 0
+6. Patrón de id_usuario en los datos completos:
+      - No aplica (sin columna id_usuario)
+
+--- PARTE 3: RAREZAS Y ANOMALÍAS DETECTADAS (i) ---
+      [!] No tiene id_usuario, imposibilitando cruzar viajes con la tabla de usuarios de 2016.
+      [!] No posee ningún identificador primario de viaje (id_recorrido).
+      [!] Columna de género nombrada 'genero_usuario' en el dataset de recorridos.
+      [!] Usa 'domicilio_estacion_*' en lugar de 'direccion_estacion_*'.
+      [!] Se registraron 93,555 viajes sin fecha de destino (nulos).
+
+
+================================================================================
+[USUARIOS 2016] Archivo: usuarios-ecobici-2016.csv
+================================================================================
+
+--- PARTE 1: EXPLORACIÓN ESTRUCTURAL (Muestra inicial nrows=1000) ---
+a) Nombre del archivo CSV: usuarios-ecobici-2016.csv
+b) Separador detectado: ','
+   Encoding con el que se pudo leer: utf-8
+c) Nombres exactos de las columnas (5):
+      - id_usuario
+      - genero_usuario
+      - edad_usuario
+      - fecha_alta
+      - hora_alta
+d) Formato de fecha y hora:
+      - Columna 'fecha_alta':
+          Ejemplos: ['01-01-16', '01-01-16', '01-01-16']
+          Formato strptime deducido: %d-%m-%y
+      - Columna 'hora_alta':
+          Ejemplos: ['3:45:19 AM', '12:36:42 PM', '12:45:44 PM']
+          Formato strptime deducido: %I:%M:%S %p
+e) Duración del viaje:
+      - No aplica. Dataset de registro de usuarios (no de recorridos).
+f) ID de usuario en muestra:
+      - Columna: 'id_usuario'
+      - Nulos en muestra (primeras 1000 filas): 0
+      - Ejemplos: ['223858', '223873', '223874']
+g) Cantidad TOTAL de filas (sin encabezado): 39,481
+h) Métricas de Usuarios sobre archivo completo:
+      - Distribución de género (genero_usuario):
+          * M: 21,697
+          * F: 17,784
+      - Rango de edades (edad_usuario):
+          * Mínimo: 16.0
+          * Máximo: 88.0
+          * Nulos / no numéricos: 0
+
+--- PARTE 2: VERIFICACIONES SOBRE ARCHIVOS COMPLETOS (PASO 3b) ---
+Verificaciones de ID de usuario en archivo completo:
+      - Columna evaluada: id_usuario
+      - IDs nulos o vacíos: 0
+      - IDs duplicados: 0
+
+--- PARTE 3: RAREZAS Y ANOMALÍAS DETECTADAS (i) ---
+      (Ninguna anomalía crítica detectada)
+
+
+================================================================================
+[RECORRIDOS 2019] Archivo: recorridos-realizados-2019.zip
+================================================================================
+
+--- PARTE 1: EXPLORACIÓN ESTRUCTURAL (Muestra inicial nrows=1000) ---
+a) Archivos en ZIP: ['trips_2019.csv']
+   CSV de datos identificado: trips_2019.csv
+b) Separador detectado: ','
+   Encoding con el que se pudo leer: utf-8
+c) Nombres exactos de las columnas (18):
+      - Unnamed: 0
+      - Id_recorrido
+      - duracion_recorrido
+      - fecha_origen_recorrido
+      - id_estacion_origen
+      - nombre_estacion_origen
+      - direccion_estacion_origen
+      - long_estacion_origen
+      - lat_estacion_origen
+      - fecha_destino_recorrido
+      - id_estacion_destino
+      - nombre_estacion_destino
+      - direccion_estacion_destino
+      - long_estacion_destino
+      - lat_estacion_destino
+      - id_usuario
+      - modelo_bicicleta
+      - género
+d) Formato de fecha y hora:
+      - Columna 'fecha_origen_recorrido':
+          Ejemplos: ['2019-02-27 19:44:42', '2019-02-27 14:35:58', '2019-02-27 11:51:40']
+          Formato strptime deducido: %Y-%m-%d %H:%M:%S
+      - Columna 'fecha_destino_recorrido':
+          Ejemplos: ['2019-02-27 19:48:41', '2019-02-27 15:22:52', '2019-02-27 11:56:38']
+          Formato strptime deducido: %Y-%m-%d %H:%M:%S
+e) Duración del viaje:
+      - Columna: 'duracion_recorrido'
+      - Unidad / formato: Segundos representados en texto con coma como separador de miles (ej: '2,814')
+      - Ejemplos: ['239', '2,814', '298']
+f) ID de usuario en muestra:
+      - Columna: 'id_usuario'
+      - Nulos en muestra (primeras 1000 filas): 0
+      - Ejemplos: ['6243BAEcobici', '11140BAEcobici', '1994BAEcobici']
+g) Cantidad TOTAL de filas (sin encabezado): 6,217,004
+
+--- PARTE 2: VERIFICACIONES SOBRE ARCHIVOS COMPLETOS (PASO 3b) ---
+1. Ejemplos de ID de viaje y análisis de sufijos:
+      - Columna: Id_recorrido
+      - 5 Ejemplos: ['9379BAEcobici', '7441BAEcobici', '6828BAEcobici', '7485BAEcobici', '6111BAEcobici']
+      - Diagnóstico de sufijo: SÍ, contiene sufijo 'BAEcobici'
+2. Cantidad de nulos o vacíos en campos clave:
+      - id_usuario: 0
+      - id_estacion_origen: 0
+      - id_estacion_destino: 1,760
+      - fecha_origen_recorrido: 0
+      - fecha_destino_recorrido: 0
+3. Cantidad de fechas que NO cumplen formato %Y-%m-%d %H:%M:%S:
+      - fecha_origen_recorrido: 0
+      - fecha_destino_recorrido: 0
+4. Cantidad de IDs de viaje duplicados:
+      - Duplicados encontrados: 0
+5. Consistencia temporal de viajes (calculada con fechas):
+      - Viajes con fin anterior al inicio (destino < origen): 0
+      - Viajes con duración mayor a 86.400 segundos (> 24 hs): 9,048
+6. Patrón de id_usuario en los datos completos:
+      - sufijo_BAEcobici: 6,217,004
+      - terminan_en_punto_cero: 0
+      - solo_digitos: 0
+      - otros: 0
+
+--- PARTE 3: RAREZAS Y ANOMALÍAS DETECTADAS (i) ---
+      [!] Columna espuria 'Unnamed: 0' generada por exportación de pandas con índice.
+      [!] Columna 'Id_recorrido' con 'I' mayúscula y valores alfanuméricos sufijados con 'BAEcobici'.
+      [!] Columna de género con tilde ('género') en minúsculas.
+      [!] Se registraron 1,760 viajes sin estación de destino (nulos).
+      [!] Se registraron 9,048 viajes con duración calculada mayor a 24 horas (86.400s).
+
+
+================================================================================
+[USUARIOS 2019] Archivo: usuarios_ecobici_2019.csv
+================================================================================
+
+--- PARTE 1: EXPLORACIÓN ESTRUCTURAL (Muestra inicial nrows=1000) ---
+a) Nombre del archivo CSV: usuarios_ecobici_2019.csv
+b) Separador detectado: ','
+   Encoding con el que se pudo leer: utf-8
+c) Nombres exactos de las columnas (5):
+      - ID_usuario
+      - genero_usuario
+      - edad_usuario
+      - fecha_alta
+      - hora_alta
+d) Formato de fecha y hora:
+      - Columna 'fecha_alta':
+          Ejemplos: ['2019-12-31', '2019-12-31', '2019-12-31']
+          Formato strptime deducido: %Y-%m-%d
+      - Columna 'hora_alta':
+          Ejemplos: ['10:46:10', '18:54:57', '10:18:36']
+          Formato strptime deducido: %H:%M:%S
+e) Duración del viaje:
+      - No aplica. Dataset de registro de usuarios (no de recorridos).
+f) ID de usuario en muestra:
+      - Columna: 'ID_usuario'
+      - Nulos en muestra (primeras 1000 filas): 0
+      - Ejemplos: ['627966', '628268', '627943']
+g) Cantidad TOTAL de filas (sin encabezado): 83,600
+h) Métricas de Usuarios sobre archivo completo:
+      - Distribución de género (genero_usuario):
+          * MALE: 41,107
+          * FEMALE: 24,285
+          * OTHER: 17,351
+          * NaN / Nulo: 857
+      - Rango de edades (edad_usuario):
+          * Mínimo: 0.0
+          * Máximo: 935.0
+          * Nulos / no numéricos: 765
+
+--- PARTE 2: VERIFICACIONES SOBRE ARCHIVOS COMPLETOS (PASO 3b) ---
+Verificaciones de ID de usuario en archivo completo:
+      - Columna evaluada: ID_usuario
+      - IDs nulos o vacíos: 0
+      - IDs duplicados: 0
+
+--- PARTE 3: RAREZAS Y ANOMALÍAS DETECTADAS (i) ---
+      [!] Nombre de columna 'ID_usuario' con prefijo en mayúsculas 'ID' en lugar de minúsculas.
+      [!] Valores inverosímiles en edad: valor máximo encontrado de 935.0 años.
+      [!] Valores inverosímiles en edad: valor mínimo encontrado de 0.0 años.
+      [!] Se registraron 765 registros con edad nula o no numérica.
+      [!] Se registraron 857 usuarios con género nulo.
+
+
+================================================================================
+[RECORRIDOS 2024] Archivo: recorridos-realizados-2024.zip
+================================================================================
+
+--- PARTE 1: EXPLORACIÓN ESTRUCTURAL (Muestra inicial nrows=1000) ---
+a) Archivos en ZIP: ['badata_ecobici_recorridos_realizados_2024.csv']
+   CSV de datos identificado: badata_ecobici_recorridos_realizados_2024.csv
+b) Separador detectado: ','
+   Encoding con el que se pudo leer: utf-8-sig
+c) Nombres exactos de las columnas (17):
+      - id_recorrido
+      - duracion_recorrido
+      - fecha_origen_recorrido
+      - id_estacion_origen
+      - nombre_estacion_origen
+      - direccion_estacion_origen
+      - long_estacion_origen
+      - lat_estacion_origen
+      - fecha_destino_recorrido
+      - id_estacion_destino
+      - nombre_estacion_destino
+      - direccion_estacion_destino
+      - long_estacion_destino
+      - lat_estacion_destino
+      - id_usuario
+      - modelo_bicicleta
+      - genero
+d) Formato de fecha y hora:
+      - Columna 'fecha_origen_recorrido':
+          Ejemplos: ['2024-01-23 18:36:00', '2024-01-23 22:41:20', '2024-01-23 20:06:22']
+          Formato strptime deducido: %Y-%m-%d %H:%M:%S
+      - Columna 'fecha_destino_recorrido':
+          Ejemplos: ['2024-01-23 18:45:28', '2024-01-23 23:03:55', '2024-01-23 20:06:22']
+          Formato strptime deducido: %Y-%m-%d %H:%M:%S
+e) Duración del viaje:
+      - Columna: 'duracion_recorrido'
+      - Unidad / formato: Segundos expresados como valor entero numérico en texto (ej: '568')
+      - Ejemplos: ['568', '1355', '0']
+f) ID de usuario en muestra:
+      - Columna: 'id_usuario'
+      - Nulos en muestra (primeras 1000 filas): 0
+      - Ejemplos: ['992557.0', '320782.0', '828678.0']
+g) Cantidad TOTAL de filas (sin encabezado): 3,559,284
+
+--- PARTE 2: VERIFICACIONES SOBRE ARCHIVOS COMPLETOS (PASO 3b) ---
+1. Ejemplos de ID de viaje y análisis de sufijos:
+      - Columna: id_recorrido
+      - 5 Ejemplos: ['20428222', '20431744', '20429936', '20429976', '20424802']
+      - Diagnóstico de sufijo: NO posee sufijo alfanumérico (solo dígitos)
+2. Cantidad de nulos o vacíos en campos clave:
+      - id_usuario: 0
+      - id_estacion_origen: 0
+      - id_estacion_destino: 0
+      - fecha_origen_recorrido: 0
+      - fecha_destino_recorrido: 3,379
+3. Cantidad de fechas que NO cumplen formato %Y-%m-%d %H:%M:%S:
+      - fecha_origen_recorrido: 0
+      - fecha_destino_recorrido: 0
+4. Cantidad de IDs de viaje duplicados:
+      - Duplicados encontrados: 1
+5. Consistencia temporal de viajes (calculada con fechas):
+      - Viajes con fin anterior al inicio (destino < origen): 0
+      - Viajes con duración mayor a 86.400 segundos (> 24 hs): 687
+6. Patrón de id_usuario en los datos completos:
+      - sufijo_BAEcobici: 0
+      - terminan_en_punto_cero: 3,559,284
+      - solo_digitos: 0
+      - otros: 0
+
+--- PARTE 3: RAREZAS Y ANOMALÍAS DETECTADAS (i) ---
+      [!] Archivo con marca BOM UTF-8 (\xef\xbb\xbf).
+      [!] Se registraron 3,379 viajes sin fecha de destino (nulos).
+      [!] Se detectó 1 id_recorrido duplicado en el dataset.
+      [!] Se registraron 687 viajes con duración calculada mayor a 24 horas (86.400s).
+
+
+================================================================================
+[USUARIOS 2024] Archivo: usuarios_ecobici_2024.csv
+================================================================================
+
+--- PARTE 1: EXPLORACIÓN ESTRUCTURAL (Muestra inicial nrows=1000) ---
+a) Nombre del archivo CSV: usuarios_ecobici_2024.csv
+b) Separador detectado: ','
+   Encoding con el que se pudo leer: utf-8-sig
+c) Nombres exactos de las columnas (5):
+      - id_usuario
+      - genero_usuario
+      - edad_usuario
+      - fecha_alta
+      - hora_alta
+d) Formato de fecha y hora:
+      - Columna 'fecha_alta':
+          Ejemplos: ['2024-01-18', '2024-01-21', '2024-01-29']
+          Formato strptime deducido: %Y-%m-%d
+      - Columna 'hora_alta':
+          Ejemplos: ['09:21:02', '23:02:26', '19:33:32']
+          Formato strptime deducido: %H:%M:%S
+e) Duración del viaje:
+      - No aplica. Dataset de registro de usuarios (no de recorridos).
+f) ID de usuario en muestra:
+      - Columna: 'id_usuario'
+      - Nulos en muestra (primeras 1000 filas): 0
+      - Ejemplos: ['1094487', '1097128', '1102901']
+g) Cantidad TOTAL de filas (sin encabezado): 197,077
+h) Métricas de Usuarios sobre archivo completo:
+      - Distribución de género (genero_usuario):
+          * MALE: 88,655
+          * FEMALE: 79,310
+          * OTHER: 29,112
+      - Rango de edades (edad_usuario):
+          * Mínimo: 4.0
+          * Máximo: 2021.0
+          * Nulos / no numéricos: 0
+
+--- PARTE 2: VERIFICACIONES SOBRE ARCHIVOS COMPLETOS (PASO 3b) ---
+Verificaciones de ID de usuario en archivo completo:
+      - Columna evaluada: id_usuario
+      - IDs nulos o vacíos: 0
+      - IDs duplicados: 0
+
+--- PARTE 3: RAREZAS Y ANOMALÍAS DETECTADAS (i) ---
+      [!] Archivo con marca BOM UTF-8 (\xef\xbb\xbf).
+      [!] Valores inverosímiles en edad: valor máximo encontrado de 2021.0 años.
+      [!] Valores inverosímiles en edad: valor mínimo encontrado de 4.0 años.
+

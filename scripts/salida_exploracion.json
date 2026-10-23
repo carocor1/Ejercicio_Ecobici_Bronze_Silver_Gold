@@ -1,0 +1,512 @@
+[
+  {
+    "anio": 2016,
+    "tipo": "RECORRIDOS",
+    "archivo_origen": "recorridos-realizados-2016.zip",
+    "archivos_en_zip": [
+      "recorridos-realizados-2016.csv"
+    ],
+    "csv_datos": "recorridos-realizados-2016.csv",
+    "encoding_detectado": "utf-8",
+    "separador_detectado": ",",
+    "columnas": [
+      "periodo",
+      "genero_usuario",
+      "fecha_origen_recorrido",
+      "id_estacion_origen",
+      "nombre_estacion_origen",
+      "long_estacion_origen",
+      "lat_estacion_origen",
+      "domicilio_estacion_origen",
+      "duracion_recorrido",
+      "fecha_destino_recorrido",
+      "id_estacion_destino",
+      "nombre_estacion_destino",
+      "long_estacion_destino",
+      "lat_estacion_destino",
+      "domicilio_estacion_destino"
+    ],
+    "fechas": {
+      "fecha_origen_recorrido": {
+        "ejemplos": [
+          "2016-01-01 02:21:41",
+          "2016-01-01 08:38:19",
+          "2016-01-01 15:01:07"
+        ],
+        "formato_deducido": "%Y-%m-%d %H:%M:%S"
+      },
+      "fecha_destino_recorrido": {
+        "ejemplos": [
+          "2016-01-01 02:48:05",
+          "2016-01-01 09:36:12",
+          "2016-01-01 16:04:15"
+        ],
+        "formato_deducido": "%Y-%m-%d %H:%M:%S"
+      }
+    },
+    "duracion": {
+      "columna": "duracion_recorrido",
+      "trae_duracion": true,
+      "unidad_estimada": "Texto con formato de duración timedelta ('0 days HH:MM:SS.ns')",
+      "ejemplos": [
+        "0 days 00:16:29.000000000",
+        "0 days 00:55:26.000000000",
+        "0 days 00:40:27.000000000"
+      ]
+    },
+    "id_usuario": {
+      "trae_id_usuario": false,
+      "descripcion": "No contiene columna de id de usuario (solo trae 'genero_usuario')"
+    },
+    "total_filas": 596807,
+    "verificaciones_paso_3b": {
+      "columna_id_viaje": "Ninguna (no existe)",
+      "ejemplos_id_viaje": [],
+      "analisis_sufijo_id_viaje": "No aplica: NO existe ninguna columna que sirva de ID de viaje en 2016",
+      "nulos_o_vacios": {
+        "id_usuario": "No existe columna en este año",
+        "id_estacion_origen": 0,
+        "id_estacion_destino": 0,
+        "fecha_origen_recorrido": 0,
+        "fecha_destino_recorrido": 93555
+      },
+      "fechas_formato_invalido": {
+        "fecha_origen_recorrido": 0,
+        "fecha_destino_recorrido": 0
+      },
+      "id_viaje_duplicados": "No aplica (sin columna de id)",
+      "viajes_fin_anterior_al_inicio": 0,
+      "viajes_duracion_mayor_86400s": 0,
+      "patron_id_usuario": "No aplica (sin columna id_usuario)"
+    },
+    "rarezas": [
+      "No tiene id_usuario, imposibilitando cruzar viajes con la tabla de usuarios de 2016.",
+      "No posee ningún identificador primario de viaje (id_recorrido).",
+      "Columna de género nombrada 'genero_usuario' en el dataset de recorridos.",
+      "Usa 'domicilio_estacion_*' en lugar de 'direccion_estacion_*'.",
+      "Se registraron 93,555 viajes sin fecha de destino (nulos)."
+    ]
+  },
+  {
+    "anio": 2016,
+    "tipo": "USUARIOS",
+    "archivo_origen": "usuarios-ecobici-2016.csv",
+    "nombre_csv": "usuarios-ecobici-2016.csv",
+    "encoding_detectado": "utf-8",
+    "separador_detectado": ",",
+    "columnas": [
+      "id_usuario",
+      "genero_usuario",
+      "edad_usuario",
+      "fecha_alta",
+      "hora_alta"
+    ],
+    "fechas": {
+      "fecha_alta": {
+        "ejemplos": [
+          "01-01-16",
+          "01-01-16",
+          "01-01-16"
+        ],
+        "formato_deducido": "%d-%m-%y"
+      },
+      "hora_alta": {
+        "ejemplos": [
+          "3:45:19 AM",
+          "12:36:42 PM",
+          "12:45:44 PM"
+        ],
+        "formato_deducido": "%I:%M:%S %p"
+      }
+    },
+    "duracion": {
+      "trae_duracion": false,
+      "descripcion": "No aplica. Dataset de registro de usuarios (no de recorridos)."
+    },
+    "id_usuario": {
+      "trae_id_usuario": true,
+      "columna": "id_usuario",
+      "nulos_en_muestra_1000": 0,
+      "ejemplos": [
+        "223858",
+        "223873",
+        "223874"
+      ]
+    },
+    "total_filas": 39481,
+    "metricas_usuarios": {
+      "columna_genero": "genero_usuario",
+      "distribucion_genero": {
+        "M": 21697,
+        "F": 17784
+      },
+      "columna_edad": "edad_usuario",
+      "edad_minima": 16.0,
+      "edad_maxima": 88.0,
+      "edades_nulas_o_invalidas": 0
+    },
+    "verificaciones_paso_3b": {
+      "columna_id_usuario": "id_usuario",
+      "ids_nulos_o_vacios": 0,
+      "ids_duplicados": 0
+    },
+    "rarezas": []
+  },
+  {
+    "anio": 2019,
+    "tipo": "RECORRIDOS",
+    "archivo_origen": "recorridos-realizados-2019.zip",
+    "archivos_en_zip": [
+      "trips_2019.csv"
+    ],
+    "csv_datos": "trips_2019.csv",
+    "encoding_detectado": "utf-8",
+    "separador_detectado": ",",
+    "columnas": [
+      "Unnamed: 0",
+      "Id_recorrido",
+      "duracion_recorrido",
+      "fecha_origen_recorrido",
+      "id_estacion_origen",
+      "nombre_estacion_origen",
+      "direccion_estacion_origen",
+      "long_estacion_origen",
+      "lat_estacion_origen",
+      "fecha_destino_recorrido",
+      "id_estacion_destino",
+      "nombre_estacion_destino",
+      "direccion_estacion_destino",
+      "long_estacion_destino",
+      "lat_estacion_destino",
+      "id_usuario",
+      "modelo_bicicleta",
+      "género"
+    ],
+    "fechas": {
+      "fecha_origen_recorrido": {
+        "ejemplos": [
+          "2019-02-27 19:44:42",
+          "2019-02-27 14:35:58",
+          "2019-02-27 11:51:40"
+        ],
+        "formato_deducido": "%Y-%m-%d %H:%M:%S"
+      },
+      "fecha_destino_recorrido": {
+        "ejemplos": [
+          "2019-02-27 19:48:41",
+          "2019-02-27 15:22:52",
+          "2019-02-27 11:56:38"
+        ],
+        "formato_deducido": "%Y-%m-%d %H:%M:%S"
+      }
+    },
+    "duracion": {
+      "columna": "duracion_recorrido",
+      "trae_duracion": true,
+      "unidad_estimada": "Segundos representados en texto con coma como separador de miles (ej: '2,814')",
+      "ejemplos": [
+        "239",
+        "2,814",
+        "298"
+      ]
+    },
+    "id_usuario": {
+      "trae_id_usuario": true,
+      "columna": "id_usuario",
+      "nulos_en_muestra_1000": 0,
+      "ejemplos": [
+        "6243BAEcobici",
+        "11140BAEcobici",
+        "1994BAEcobici"
+      ]
+    },
+    "total_filas": 6217004,
+    "verificaciones_paso_3b": {
+      "columna_id_viaje": "Id_recorrido",
+      "ejemplos_id_viaje": [
+        "9379BAEcobici",
+        "7441BAEcobici",
+        "6828BAEcobici",
+        "7485BAEcobici",
+        "6111BAEcobici"
+      ],
+      "analisis_sufijo_id_viaje": "SÍ, contiene sufijo 'BAEcobici'",
+      "nulos_o_vacios": {
+        "id_usuario": 0,
+        "id_estacion_origen": 0,
+        "id_estacion_destino": 1760,
+        "fecha_origen_recorrido": 0,
+        "fecha_destino_recorrido": 0
+      },
+      "fechas_formato_invalido": {
+        "fecha_origen_recorrido": 0,
+        "fecha_destino_recorrido": 0
+      },
+      "id_viaje_duplicados": 0,
+      "viajes_fin_anterior_al_inicio": 0,
+      "viajes_duracion_mayor_86400s": 9048,
+      "patron_id_usuario": {
+        "sufijo_BAEcobici": 6217004,
+        "terminan_en_punto_cero": 0,
+        "solo_digitos": 0,
+        "otros": 0
+      }
+    },
+    "rarezas": [
+      "Columna espuria 'Unnamed: 0' generada por exportación de pandas con índice.",
+      "Columna 'Id_recorrido' con 'I' mayúscula y valores alfanuméricos sufijados con 'BAEcobici'.",
+      "Columna de género con tilde ('género') en minúsculas.",
+      "Se registraron 1,760 viajes sin estación de destino (nulos).",
+      "Se registraron 9,048 viajes con duración calculada mayor a 24 horas (86.400s)."
+    ]
+  },
+  {
+    "anio": 2019,
+    "tipo": "USUARIOS",
+    "archivo_origen": "usuarios_ecobici_2019.csv",
+    "nombre_csv": "usuarios_ecobici_2019.csv",
+    "encoding_detectado": "utf-8",
+    "separador_detectado": ",",
+    "columnas": [
+      "ID_usuario",
+      "genero_usuario",
+      "edad_usuario",
+      "fecha_alta",
+      "hora_alta"
+    ],
+    "fechas": {
+      "fecha_alta": {
+        "ejemplos": [
+          "2019-12-31",
+          "2019-12-31",
+          "2019-12-31"
+        ],
+        "formato_deducido": "%Y-%m-%d"
+      },
+      "hora_alta": {
+        "ejemplos": [
+          "10:46:10",
+          "18:54:57",
+          "10:18:36"
+        ],
+        "formato_deducido": "%H:%M:%S"
+      }
+    },
+    "duracion": {
+      "trae_duracion": false,
+      "descripcion": "No aplica. Dataset de registro de usuarios (no de recorridos)."
+    },
+    "id_usuario": {
+      "trae_id_usuario": true,
+      "columna": "ID_usuario",
+      "nulos_en_muestra_1000": 0,
+      "ejemplos": [
+        "627966",
+        "628268",
+        "627943"
+      ]
+    },
+    "total_filas": 83600,
+    "metricas_usuarios": {
+      "columna_genero": "genero_usuario",
+      "distribucion_genero": {
+        "MALE": 41107,
+        "FEMALE": 24285,
+        "OTHER": 17351,
+        "NaN / Nulo": 857
+      },
+      "columna_edad": "edad_usuario",
+      "edad_minima": 0.0,
+      "edad_maxima": 935.0,
+      "edades_nulas_o_invalidas": 765
+    },
+    "verificaciones_paso_3b": {
+      "columna_id_usuario": "ID_usuario",
+      "ids_nulos_o_vacios": 0,
+      "ids_duplicados": 0
+    },
+    "rarezas": [
+      "Nombre de columna 'ID_usuario' con prefijo en mayúsculas 'ID' en lugar de minúsculas.",
+      "Valores inverosímiles en edad: valor máximo encontrado de 935.0 años.",
+      "Valores inverosímiles en edad: valor mínimo encontrado de 0.0 años.",
+      "Se registraron 765 registros con edad nula o no numérica.",
+      "Se registraron 857 usuarios con género nulo."
+    ]
+  },
+  {
+    "anio": 2024,
+    "tipo": "RECORRIDOS",
+    "archivo_origen": "recorridos-realizados-2024.zip",
+    "archivos_en_zip": [
+      "badata_ecobici_recorridos_realizados_2024.csv"
+    ],
+    "csv_datos": "badata_ecobici_recorridos_realizados_2024.csv",
+    "encoding_detectado": "utf-8-sig",
+    "separador_detectado": ",",
+    "columnas": [
+      "id_recorrido",
+      "duracion_recorrido",
+      "fecha_origen_recorrido",
+      "id_estacion_origen",
+      "nombre_estacion_origen",
+      "direccion_estacion_origen",
+      "long_estacion_origen",
+      "lat_estacion_origen",
+      "fecha_destino_recorrido",
+      "id_estacion_destino",
+      "nombre_estacion_destino",
+      "direccion_estacion_destino",
+      "long_estacion_destino",
+      "lat_estacion_destino",
+      "id_usuario",
+      "modelo_bicicleta",
+      "genero"
+    ],
+    "fechas": {
+      "fecha_origen_recorrido": {
+        "ejemplos": [
+          "2024-01-23 18:36:00",
+          "2024-01-23 22:41:20",
+          "2024-01-23 20:06:22"
+        ],
+        "formato_deducido": "%Y-%m-%d %H:%M:%S"
+      },
+      "fecha_destino_recorrido": {
+        "ejemplos": [
+          "2024-01-23 18:45:28",
+          "2024-01-23 23:03:55",
+          "2024-01-23 20:06:22"
+        ],
+        "formato_deducido": "%Y-%m-%d %H:%M:%S"
+      }
+    },
+    "duracion": {
+      "columna": "duracion_recorrido",
+      "trae_duracion": true,
+      "unidad_estimada": "Segundos expresados como valor entero numérico en texto (ej: '568')",
+      "ejemplos": [
+        "568",
+        "1355",
+        "0"
+      ]
+    },
+    "id_usuario": {
+      "trae_id_usuario": true,
+      "columna": "id_usuario",
+      "nulos_en_muestra_1000": 0,
+      "ejemplos": [
+        "992557.0",
+        "320782.0",
+        "828678.0"
+      ]
+    },
+    "total_filas": 3559284,
+    "verificaciones_paso_3b": {
+      "columna_id_viaje": "id_recorrido",
+      "ejemplos_id_viaje": [
+        "20428222",
+        "20431744",
+        "20429936",
+        "20429976",
+        "20424802"
+      ],
+      "analisis_sufijo_id_viaje": "NO posee sufijo alfanumérico (solo dígitos)",
+      "nulos_o_vacios": {
+        "id_usuario": 0,
+        "id_estacion_origen": 0,
+        "id_estacion_destino": 0,
+        "fecha_origen_recorrido": 0,
+        "fecha_destino_recorrido": 3379
+      },
+      "fechas_formato_invalido": {
+        "fecha_origen_recorrido": 0,
+        "fecha_destino_recorrido": 0
+      },
+      "id_viaje_duplicados": 1,
+      "viajes_fin_anterior_al_inicio": 0,
+      "viajes_duracion_mayor_86400s": 687,
+      "patron_id_usuario": {
+        "sufijo_BAEcobici": 0,
+        "terminan_en_punto_cero": 3559284,
+        "solo_digitos": 0,
+        "otros": 0
+      }
+    },
+    "rarezas": [
+      "Archivo con marca BOM UTF-8 (\\xef\\xbb\\xbf).",
+      "Se registraron 3,379 viajes sin fecha de destino (nulos).",
+      "Se detectó 1 id_recorrido duplicado en el dataset.",
+      "Se registraron 687 viajes con duración calculada mayor a 24 horas (86.400s)."
+    ]
+  },
+  {
+    "anio": 2024,
+    "tipo": "USUARIOS",
+    "archivo_origen": "usuarios_ecobici_2024.csv",
+    "nombre_csv": "usuarios_ecobici_2024.csv",
+    "encoding_detectado": "utf-8-sig",
+    "separador_detectado": ",",
+    "columnas": [
+      "id_usuario",
+      "genero_usuario",
+      "edad_usuario",
+      "fecha_alta",
+      "hora_alta"
+    ],
+    "fechas": {
+      "fecha_alta": {
+        "ejemplos": [
+          "2024-01-18",
+          "2024-01-21",
+          "2024-01-29"
+        ],
+        "formato_deducido": "%Y-%m-%d"
+      },
+      "hora_alta": {
+        "ejemplos": [
+          "09:21:02",
+          "23:02:26",
+          "19:33:32"
+        ],
+        "formato_deducido": "%H:%M:%S"
+      }
+    },
+    "duracion": {
+      "trae_duracion": false,
+      "descripcion": "No aplica. Dataset de registro de usuarios (no de recorridos)."
+    },
+    "id_usuario": {
+      "trae_id_usuario": true,
+      "columna": "id_usuario",
+      "nulos_en_muestra_1000": 0,
+      "ejemplos": [
+        "1094487",
+        "1097128",
+        "1102901"
+      ]
+    },
+    "total_filas": 197077,
+    "metricas_usuarios": {
+      "columna_genero": "genero_usuario",
+      "distribucion_genero": {
+        "MALE": 88655,
+        "FEMALE": 79310,
+        "OTHER": 29112
+      },
+      "columna_edad": "edad_usuario",
+      "edad_minima": 4.0,
+      "edad_maxima": 2021.0,
+      "edades_nulas_o_invalidas": 0
+    },
+    "verificaciones_paso_3b": {
+      "columna_id_usuario": "id_usuario",
+      "ids_nulos_o_vacios": 0,
+      "ids_duplicados": 0
+    },
+    "rarezas": [
+      "Archivo con marca BOM UTF-8 (\\xef\\xbb\\xbf).",
+      "Valores inverosímiles en edad: valor máximo encontrado de 2021.0 años.",
+      "Valores inverosímiles en edad: valor mínimo encontrado de 4.0 años."
+    ]
+  }
+]
