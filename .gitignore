@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# IDEs
+.idea/
+.vscode/
+
+# Capas de datos (ignorar contenido excepto .gitkeep y la carpeta de reportes en gold)
+data/raw/*
+!data/raw/.gitkeep
+
+data/bronze/*
+!data/bronze/.gitkeep
+
+data/silver/*
+!data/silver/.gitkeep
+
+data/gold/*
+!data/gold/.gitkeep
+!data/gold/reportes/
+!data/gold/reportes/**
